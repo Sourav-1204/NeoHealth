@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+::-webkit-scrollbar {
+  @apply hidden;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Lexend", sans-serif;
+}
+
+.logo-font {
+  font-family: "Alumni Sans", sans-serif;
+  font-weight: 700;
+}
+
+.border-my {
+  border: 1px solid #ccc;
+}
+
+.admin-ul a {
+  cursor: pointer;
+  padding: 5px 20px;
+}
+
+.admin-ul a.active {
+  background-color: #e1e1e1;
+  border-right: 3px solid #5171ff;
+}
+
+.temp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.link-active a:hover {
+  color: #8a8a8a;
+}

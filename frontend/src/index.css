@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+* {
+  font-family: "Lexend", sans-serif;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.logo-font {
+  font-family: "Alumni Sans", sans-serif;
+  font-weight: 700;
+}
+
+.link-active a {
+  padding: 8px 15px;
+  margin-right: 10px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.link-active a:hover {
+  color: #afafaf;
+}
+
+.link-active a.active {
+  border-radius: 4px;
+  color: white;
+  background-color: #5c5cff;
+}
+
+.mobile-link a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 6px;
+}
+
+.mobile-link a:hover {
+  color: #afafaf;
+}
+
+.mobile-link a.active {
+  color: white;
+  background-color: #5c5cff;
+}
+
+.footer-link p {
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  @apply hidden;
+}
+
+.input-outline input {
+  outline: none;
+}
