@@ -29,7 +29,7 @@ export default function Navbar() {
             className="flex gap-1 items-center text-4xl text-[#000080] logo-font"
           >
             <span>
-              <FaHandHoldingHeart className="text-blue-500 text-3xl"/>
+              <FaHandHoldingHeart className="text-blue-500 text-3xl" />
             </span>
             NeoHealth
           </h1>
@@ -116,9 +116,9 @@ export default function Navbar() {
             ) : (
               <button
                 onClick={() => navigate("/login")}
-                className="bg-blue-500 text-white px-6 py-2 rounded-full"
+                className="bg-blue-500 text-white px-6 py-2 rounded-full text-sm"
               >
-                Create account
+                LOGIN
               </button>
             )}
           </div>
