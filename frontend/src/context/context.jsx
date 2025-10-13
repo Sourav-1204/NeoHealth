@@ -15,23 +15,23 @@ export default function AppContextProvider({ children }) {
   const currencySymbol = "$";
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
-  // const getDoctorsData = async () => {
-  //   try {
-  //     setDoctorLoading(true);
-  //     const response = await axios.get(backendUrl + "/api/doctor/list");
+  const getDoctorsData = async () => {
+    try {
+      setDoctorLoading(true);
+      const response = await axios.get(backendUrl + "/api/doctor/list");
 
-  //     if (response.status === 201 && response.data.success) {
-  //       setDoctors(response.data.doctors);
-  //       setDoctorLoading(false);
-  //     } else {
-  //       toast.error(response.data.message);
-  //       setDoctorLoading(false);
-  //     }
-  //   } catch (err) {
-  //     toast.error(err.response?.data?.message || "Something went wrong");
-  //     setDoctorLoading(false);
-  //   }
-  // };
+      if (response.status === 201 && response.data.success) {
+        setDoctors(response.data.doctors);
+        setDoctorLoading(false);
+      } else {
+        toast.error(response.data.message);
+        setDoctorLoading(false);
+      }
+    } catch (err) {
+      toast.error(err.response?.data?.message || "Something went wrong");
+      setDoctorLoading(false);
+    }
+  };
 
   const loadUserProfileData = async () => {
     try {
@@ -51,9 +51,9 @@ export default function AppContextProvider({ children }) {
     }
   };
 
-  // useEffect(() => {
-  //   getDoctorsData();
-  // }, []);
+  useEffect(() => {
+    getDoctorsData();
+  }, []);
 
   useEffect(() => {
     if (token) {
@@ -63,11 +63,9 @@ export default function AppContextProvider({ children }) {
     }
   }, [token]);
 
-  // console.log(doctors,"doctors");
-
   const value = {
     doctors,
-    // getDoctorsData,
+    getDoctorsData,
     currencySymbol,
     isLogin,
     setIsLogin,
