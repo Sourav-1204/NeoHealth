@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AppContext } from "../../context/context";
 
 export default function Main() {
-  const { doctors } = useContext(AppContext);
+  const { doctors, doctorLoading } = useContext(AppContext);
   const [currentSpeciality, setCurrentSpeciality] = useState("");
   const [selectedDoctor, setSelectedDoctors] = useState(doctors);
 
@@ -21,6 +21,25 @@ export default function Main() {
     );
   }
 
+  const items = [];
+  if (doctors.length === 0 && doctorLoading) {
+    for (let i = 0; i < 4; i++) {
+      items.push(
+        <div
+          key={i}
+          className="h-[300px] animate-pulse rounded-xl border border-[#cdd8ff] hover:-translate-y-2 duration-300 transition-all"
+        >
+          <div className="w-full h-[200px] bg-[#EAEFFF] rounded-t-xl" />
+          <div className="flex flex-col gap-1 py-4 px-5">
+            <p className="w-[100px] h-[20px] bg-green-300"></p>
+            <p className="w-[170px] h-[25px] bg-gray-400"></p>
+            <p className="w-[140px] h-[20px] bg-gray-300"></p>
+          </div>
+        </div>
+      );
+    }
+  }
+
   useEffect(() => {
     setSelectedDoctors(doctors);
   }, [doctors]);
@@ -32,7 +51,9 @@ export default function Main() {
   return (
     <div className="flex flex-col items-center mt-8 mb-10 mx-auto md:px-25 px-5">
       <div className="w-full flex justify-start">
-        <p className="font-medium text-lg text-gray-700 pl-3">Browse through the doctors specialist.</p>
+        <p className="font-medium text-lg text-gray-700 pl-3">
+          Browse through the doctors specialist.
+        </p>
       </div>
       <div className="w-full flex lg:flex-row flex-col lg:items-start items-center justify-between mt-10 space-y-10 lg:gap-5">
         <div className="lg:w-[20%] w-[90%] flex flex-col items-center gap-3">
@@ -59,8 +80,8 @@ export default function Main() {
             </div>
           ))}
         </div>
-        <div className="lg:w-[80%] w-[90%] grid xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4 gap-y-6">
-          {selectedDoctor.length > 0 ? (
+        <div className="lg:w-[80%] w-[90%] grid xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-5 gap-y-6 place-items-center">
+          {!doctorLoading && selectedDoctor.length > 0 ? (
             selectedDoctor.map((item) => (
               <div
                 key={item._id}
@@ -86,9 +107,7 @@ export default function Main() {
               </div>
             ))
           ) : (
-            <div>
-              <p>No doctor available</p>
-            </div>
+            <>{items}</>
           )}
         </div>
       </div>

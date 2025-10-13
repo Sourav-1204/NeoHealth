@@ -53,7 +53,7 @@ export default function SignIn() {
   return (
     <form
       onSubmit={handleFormSubmit}
-      className="md:[50%] w-[95%] max-w-[380px] flex flex-col justify-center items-center my-20 gap-4 border border-[#ddd] rounded-lg py-8 px-3 text-gray-600 shadow-[0px_0px_10px_#ddd]"
+      className="md:[50%] w-[90%] max-w-[380px] flex flex-col justify-center items-center my-20 gap-4 border border-[#ddd] rounded-lg py-8 px-3 text-gray-600 shadow-[0px_0px_10px_#ddd]"
     >
       <div className="w-[90%]">
         <h1 className="text-2xl font-bold mb-2">Login</h1>

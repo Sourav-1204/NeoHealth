@@ -2,8 +2,10 @@ import React from "react";
 import hero1 from "../../assets/images/header_img.png";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import groupProfile from "../../assets/images/group_profiles.png";
+import { useNavigate } from "react-router-dom";
 
 export default function HomeHero() {
+  const navigate = useNavigate();
   return (
     <div className="w-full flex items-center justify-center">
       <div className="md:w-[80%] w-[95%] flex md:flex-row flex-col mt-[20px] mb-[50px] bg-[#5f5fe7] rounded-xl lg:px-20 md:px-10 px-6">
@@ -21,10 +23,7 @@ export default function HomeHero() {
             </p>
           </div>
           <button className="w-fit px-10 py-2 rounded-full bg-[#ffffff] text-black flex items-center gap-2 active:scale-105 transition-all duration-300 ease-in-out">
-            <p
-              className="text-sm"
-              onClick={() => window.scrollTo({ top: 800, behavior: "smooth" })}
-            >
+            <p className="text-sm" onClick={() => navigate("/doctors")}>
               Book Appointment
             </p>
             <span>

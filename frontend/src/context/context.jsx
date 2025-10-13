@@ -7,6 +7,7 @@ export const AppContext = createContext();
 export default function AppContextProvider({ children }) {
   const [doctors, setDoctors] = useState([]);
   const [userData, setUserData] = useState(false);
+  const [doctorLoading, setDoctorLoading] = useState(true);
   const [token, setToken] = useState(
     localStorage.getItem("token") ? localStorage.getItem("token") : false
   );
@@ -14,19 +15,23 @@ export default function AppContextProvider({ children }) {
   const currencySymbol = "$";
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
-  const getDoctorsData = async () => {
-    try {
-      const response = await axios.get(backendUrl + "/api/doctor/list");
+  // const getDoctorsData = async () => {
+  //   try {
+  //     setDoctorLoading(true);
+  //     const response = await axios.get(backendUrl + "/api/doctor/list");
 
-      if (response.status === 201 && response.data.success) {
-        setDoctors(response.data.doctors);
-      } else {
-        toast.error(response.data.message);
-      }
-    } catch (err) {
-      toast.error(err.response?.data?.message || "Something went wrong");
-    }
-  };
+  //     if (response.status === 201 && response.data.success) {
+  //       setDoctors(response.data.doctors);
+  //       setDoctorLoading(false);
+  //     } else {
+  //       toast.error(response.data.message);
+  //       setDoctorLoading(false);
+  //     }
+  //   } catch (err) {
+  //     toast.error(err.response?.data?.message || "Something went wrong");
+  //     setDoctorLoading(false);
+  //   }
+  // };
 
   const loadUserProfileData = async () => {
     try {
@@ -46,9 +51,9 @@ export default function AppContextProvider({ children }) {
     }
   };
 
-  useEffect(() => {
-    getDoctorsData();
-  }, []);
+  // useEffect(() => {
+  //   getDoctorsData();
+  // }, []);
 
   useEffect(() => {
     if (token) {
@@ -62,7 +67,7 @@ export default function AppContextProvider({ children }) {
 
   const value = {
     doctors,
-    getDoctorsData,
+    // getDoctorsData,
     currencySymbol,
     isLogin,
     setIsLogin,
@@ -72,6 +77,7 @@ export default function AppContextProvider({ children }) {
     userData,
     setUserData,
     loadUserProfileData,
+    doctorLoading,
   };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 }

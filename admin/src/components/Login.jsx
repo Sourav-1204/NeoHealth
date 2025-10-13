@@ -56,7 +56,7 @@ export default function Login() {
       onSubmit={OnSubmitHandler}
       className="w-full min-h-[80vh] flex items-center justify-center"
     >
-      <div className="sm:max-w-[340px] w-[90%] flex flex-col items-center p-8 rounded shadow-[0px_0px_15px_10px_#dddddd] gap-y-3 text-sm text-[#5e5e5e] mt-20">
+      <div className="max-w-[380px] w-[90%] flex flex-col items-center p-8 rounded shadow-[0px_0px_15px_10px_#dddddd] gap-y-3 text-sm text-[#5e5e5e] mt-20">
         <p className="text-2xl font-semibold mb-2">
           <span className="text-[#5a8eff]">{state} </span>Login
         </p>
