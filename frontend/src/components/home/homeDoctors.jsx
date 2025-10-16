@@ -12,13 +12,13 @@ export default function HomeDoctors() {
       items.push(
         <div
           key={i}
-          className="h-[300px] animate-pulse rounded-xl border border-[#cdd8ff] hover:-translate-y-2 duration-300 transition-all"
+          className="w-full h-[300px] max-md:h-[380px] animate-pulse rounded-xl border border-[#cdd8ff] hover:-translate-y-2 duration-300 transition-all"
         >
-          <div className="w-full h-[200px] bg-[#EAEFFF] rounded-t-xl" />
-          <div className="flex flex-col gap-1 py-4 px-5">
-            <p className="w-[100px] h-[20px] bg-green-300"></p>
+          <div className="w-full h-[65%] bg-[#EAEFFF] rounded-t-xl" />
+          <div className="max-md:h-[35%] flex flex-col max-md:justify-center gap-y-1.5 md:py-4 px-5">
+            <p className="w-[100px] h-[17px] bg-green-300"></p>
             <p className="w-[170px] h-[25px] bg-gray-400"></p>
-            <p className="w-[140px] h-[20px] bg-gray-300"></p>
+            <p className="w-[140px] h-[17px] bg-gray-300"></p>
           </div>
         </div>
       );

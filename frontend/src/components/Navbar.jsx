@@ -86,16 +86,14 @@ export default function Navbar() {
             <NavLink to="/contact" onClick={() => setMobileMenu(false)}>
               <p className="text-xl">CONTACT</p>
             </NavLink>
-            {token && (
-              <button
-                className="mt-5 px-4 py-1.5 border rounded-lg hover:bg-blue-500 hover:text-white transition-all duration-300 ease-in-out whitespace-nowrap"
-                onClick={() =>
-                  window.open("https://neohealth-admin.onrender.com", "_blank")
-                }
-              >
-                Admin Panel
-              </button>
-            )}
+            <button
+              className="mt-5 px-4 py-1.5 border rounded-lg hover:bg-blue-500 hover:text-white transition-all duration-300 ease-in-out whitespace-nowrap"
+              onClick={() =>
+                window.open("https://neohealth-admin.onrender.com", "_blank")
+              }
+            >
+              Admin Panel
+            </button>
           </ul>
         </div>
         <div className="flex items-center justify-center">
